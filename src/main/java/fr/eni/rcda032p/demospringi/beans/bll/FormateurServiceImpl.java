@@ -3,11 +3,13 @@ package fr.eni.rcda032p.demospringi.beans.bll;
 import fr.eni.rcda032p.demospringi.beans.bo.Formateur;
 import fr.eni.rcda032p.demospringi.beans.dal.FormateurDAO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@Primary // s'active si confit
 public class FormateurServiceImpl implements FormateurService {
 
     private FormateurDAO dao;

@@ -15,7 +15,7 @@ public class FormateurController {
     }
 
     @Autowired
-    public FormateurController(@Qualifier("formateurServiceImpl") FormateurService formateurService) {
+    public FormateurController( FormateurService formateurService) {
         this.formateurService = formateurService;
     }
 }

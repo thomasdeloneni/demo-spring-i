@@ -2,6 +2,7 @@ package fr.eni.rcda032p.demospringi.beans.dal.mock;
 
 import fr.eni.rcda032p.demospringi.beans.bo.Formateur;
 import fr.eni.rcda032p.demospringi.beans.dal.FormateurDAO;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
