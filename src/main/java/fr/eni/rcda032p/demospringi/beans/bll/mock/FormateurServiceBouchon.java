@@ -2,11 +2,13 @@ package fr.eni.rcda032p.demospringi.beans.bll.mock;
 
 import fr.eni.rcda032p.demospringi.beans.bll.FormateurService;
 import fr.eni.rcda032p.demospringi.beans.bo.Formateur;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 @Service
+@Profile("dev")
 public class FormateurServiceBouchon implements FormateurService {
     private static final List<Formateur> formateurs;
 
