@@ -14,8 +14,7 @@ public class FormateurController {
     }
 
     @Autowired
-    public void setFormateurService(FormateurService formateurService) {
-        System.out.println("Appel du setFormateurService");
+    public FormateurController(FormateurService formateurService) {
         this.formateurService = formateurService;
     }
 }
