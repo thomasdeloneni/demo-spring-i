@@ -7,10 +7,15 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class FormateurController {
 
-    @Autowired
     private FormateurService formateurService;
 
     public void afficherFormateurs() {
         System.out.println(formateurService.getFormateurs());
+    }
+
+    @Autowired
+    public void setFormateurService(FormateurService formateurService) {
+        System.out.println("Appel du setFormateurService");
+        this.formateurService = formateurService;
     }
 }

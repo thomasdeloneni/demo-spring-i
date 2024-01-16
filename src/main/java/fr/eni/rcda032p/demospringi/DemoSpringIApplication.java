@@ -27,5 +27,7 @@ public class DemoSpringIApplication {
         //Injection par propriété
         FormateurController formateurController = ctx.getBean(FormateurController.class);
         formateurController.afficherFormateurs();
+
+
     }
 }
