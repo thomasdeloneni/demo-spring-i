@@ -1,5 +1,6 @@
 package fr.eni.rcda032p.demospringi;
 
+import fr.eni.rcda032p.demospringi.beans.controller.FormateurController;
 import fr.eni.rcda032p.demospringi.beans.controller.WelcomeComponent;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -22,6 +23,9 @@ public class DemoSpringIApplication {
         System.out.println("WelcomeComponent 2 :" + welcomeComponentType);
 
         //Même object si on ne declare pas le @scope("prototype") car le comportement par defaut est scope("singleton")
-    }
 
+        //Injection par propriété
+        FormateurController formateurController = ctx.getBean(FormateurController.class);
+        formateurController.afficherFormateurs();
+    }
 }
