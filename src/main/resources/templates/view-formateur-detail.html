@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<title>Démo Spring Web</title>
+		<link rel="stylesheet" href="/css/demo-form.css">
+	</head>
+	<body>
+		<form action="/formateurs/detail" method="post">
+			<h1>Détail du formateur</h1>
+			<ul class="flex-outer">
+				<li>
+					<label for="inputPrenom">Prénom :</label>
+					<input type="text" name="prenom" id="inputPrenom" required>
+				</li>
+				<li>
+					<label for="inputPrenom">Nom :</label>
+					<input type="text" name="nom" id="inputNom" required>
+				</li>
+				<li>
+					<label for="inputPrenom">Email :</label>
+					<input type="text" name="email" id="inputEmail" required>
+					<button	type="submit">Enregistrer</button>
+				</li>
+				
+			</ul>
+		</form>
+	</body>
+</html>
