@@ -1,29 +1,44 @@
 <!DOCTYPE html>
-<html lang="fr">
-	<head>
-		<meta charset="UTF-8">
-		<title>Démo Spring Web</title>
-		<link rel="stylesheet" href="/css/demo-form.css">
-	</head>
-	<body>
-		<form action="/formateurs/detail" method="post">
-			<h1>Détail du formateur</h1>
-			<ul class="flex-outer">
-				<li>
-					<label for="inputPrenom">Prénom :</label>
-					<input type="text" name="prenom" id="inputPrenom" required>
-				</li>
-				<li>
-					<label for="inputPrenom">Nom :</label>
-					<input type="text" name="nom" id="inputNom" required>
-				</li>
-				<li>
-					<label for="inputPrenom">Email :</label>
-					<input type="text" name="email" id="inputEmail" required>
-					<button	type="submit">Enregistrer</button>
-				</li>
-				
-			</ul>
-		</form>
-	</body>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Démo Spring Web</title>
+        <link rel="icon" href="/images/logoENI.png" sizes="32x32"/>
+        <link rel="stylesheet" type="text/css" href="/css/general.css"/>
+        <link rel="stylesheet" href="/css/demo-form.css">
+    </head>
+    <body>
+        <!-- Navbar -->
+        <header>
+            <h1 id="nav-title"><a href="/">Démonstrations Spring Web</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="/formateurs">Formateurs</a></li>
+                    <li><a href="/formateurs/creer">Création</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <form action="/formateurs/detail" method="post">
+                <h1>Détail du formateur</h1>
+                <ul class="flex-outer">
+                    <li>
+                        <label for="inputPrenom">Prénom :</label>
+                        <input type="text" name="prenom" id="inputPrenom" data-th-value="${formateur.prenom}" required />
+                    </li>
+                    <li>
+                        <label for="inputNom">Nom :</label>
+                        <input type="text" name="nom" id="inputNom" data-th-value="${formateur.nom}" required />
+                    </li>
+                    <li>
+                        <label for="inputEmail">Email :</label>
+                        <input type="text" name="email" id="inputEmail" data-th-value="${formateur.email}" required />
+                    </li>
+                    <li>
+                        <button type="submit">Enregistrer</button>
+                    </li>
+                </ul>
+            </form>
+        </main>
+    </body>
 </html>
