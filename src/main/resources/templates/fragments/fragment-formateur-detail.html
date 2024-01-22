@@ -1,0 +1,25 @@
+<form data-th-fragment="frag-formateur-form" action="/formateurs/detail" method="post">
+	<h1>Détail du formateur</h1>
+	<ul class="flex-outer">
+		<li>
+			<label for="inputPrenom">Prénom :</label>
+			<input type="text" name="prenom" id="inputPrenom" data-th-value="${formateur.prenom}" required/>
+		</li>
+		<li>
+			<label for="inputNom">Nom :</label>
+			<input type="text" name="nom" id="inputNom" data-th-value="${formateur.nom}" required/>
+		</li>
+		<li>
+			<label for="inputEmail">Email :</label>
+			<input type="text" name="email" id="inputEmail" data-th-value="${formateur.email}" required/>
+		</li>
+		
+		<li>
+			<label>Cours : </label>
+		<li data-th-each="item : ${formateur.listeCours}" data-th-text="${item.id + ' - ' +item.titre}"></li>
+		
+		<li>
+			<button type="submit">Enregistrer</button>
+		</li>
+	</ul>
+</form>

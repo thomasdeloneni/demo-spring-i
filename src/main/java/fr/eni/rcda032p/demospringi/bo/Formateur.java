@@ -1,11 +1,20 @@
 package fr.eni.rcda032p.demospringi.bo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Formateur {
 
     private String nom;
 
     private String prenom;
     private String email;
+
+    private List<Cours> listeCours;
+
+    {
+        listeCours = new ArrayList<>();
+    }
 
     public Formateur() {
     }
@@ -38,6 +47,14 @@ public class Formateur {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<Cours> getListeCours() {
+        return listeCours;
+    }
+
+    public void setListeCours(List<Cours> listeCours) {
+        this.listeCours = listeCours;
     }
 
     @Override

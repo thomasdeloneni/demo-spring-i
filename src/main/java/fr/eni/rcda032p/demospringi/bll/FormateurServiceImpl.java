@@ -1,35 +1,52 @@
 package fr.eni.rcda032p.demospringi.bll;
 
+import fr.eni.rcda032p.demospringi.bo.Cours;
 import fr.eni.rcda032p.demospringi.bo.Formateur;
+import fr.eni.rcda032p.demospringi.dal.CoursDAO;
 import fr.eni.rcda032p.demospringi.dal.FormateurDAO;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class FormateurServiceImpl implements FormateurService {
+	private FormateurDAO formateurDAO;
+	private CoursDAO coursDAO;
 
-    private FormateurDAO formateurDAO;
+	public FormateurServiceImpl(FormateurDAO formateurDAO, CoursDAO coursDAO) {
+		this.formateurDAO = formateurDAO;
+		this.coursDAO = coursDAO;
+	}
 
-    @Autowired
-    public FormateurServiceImpl(FormateurDAO formateurDAO) {
-        this.formateurDAO = formateurDAO;
-    }
+	@Override
+	public void add(String nom, String prenom, String email) {
+		Formateur formateur = new Formateur(nom, prenom, email);
+		formateurDAO.create(formateur);
+	}
 
-    @Override
-    public void add(String nom, String prenom, String email) {
-        formateurDAO.create(new Formateur(nom, prenom, email));
-    }
+	@Override
+	public List<Formateur> getFormateurs() {
+		return formateurDAO.findAll();
+	}
 
-    @Override
-    public  List<Formateur> getFormateurs() {
-        return formateurDAO.findall();
-    }
+	@Override
+	public Formateur findByEmail(String emailFormateur) {
+		return formateurDAO.read(emailFormateur);
+	}
 
-    @Override
-    public Formateur findByEmail(String emailFormateur) {
-        return formateurDAO.read(emailFormateur);
-    }
+	public void update(Formateur formateur) {
+		formateurDAO.update(formateur);
+	}
+
+	@Override
+	public void updateCoursFormateur(String emailFormateur, long idCours) {
+		//Mise à jour au niveau BO
+		Formateur f = formateurDAO.read(emailFormateur);
+		Cours c = coursDAO.read(idCours);	
+		f.getListeCours().add(c);
+		
+		//Mise à jour en base
+		coursDAO.insertCoursFormateur(idCours, emailFormateur);
+	}
+
 }

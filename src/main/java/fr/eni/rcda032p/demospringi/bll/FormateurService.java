@@ -5,10 +5,13 @@ import fr.eni.rcda032p.demospringi.bo.Formateur;
 import java.util.List;
 
 public interface FormateurService {
+	void add(String nom, String prenom, String email);
 
-    void add(String nom, String prenom, String email);
-
-    List<Formateur> getFormateurs();
-
-    Formateur findByEmail(String emailFormateur);
+	List<Formateur> getFormateurs();
+	
+	Formateur findByEmail(String emailFormateur);
+	
+	void update(Formateur formateur);
+	
+	void updateCoursFormateur(String emailFormateur, long idCours);
 }
